@@ -26,8 +26,7 @@ const CarritoFormulario = () => {
     });
     const formRef = useRef(null);
     const infoPedido = useOutletContext();
-    const { carrito, total } = infoPedido;
-    console.log(carrito)
+    const { setCarrito, carrito, total } = infoPedido;
 
     const handleChange = (e) => {
         setFormData({
@@ -62,6 +61,7 @@ const CarritoFormulario = () => {
 
         // Restablece el formulario después de enviar
         formRef.current.reset();
+        setCarrito([]);
     };
 
 

@@ -114,6 +114,7 @@ const App = () => {
             <Outlet
                 context={{
                     agregarCarrito,
+                    setCarrito,
                     carrito,
                     actualizarCantidad,
                     actualizarPeso,

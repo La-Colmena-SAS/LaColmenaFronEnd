@@ -29,7 +29,7 @@ export const links = () => {
 const Carrito = () => {
 
     const [total, setTotal] = useState(0);
-    const { carrito, actualizarCantidad, actualizarPeso, eliminarProduct } = useOutletContext();
+    const { setCarrito, carrito, actualizarCantidad, actualizarPeso, eliminarProduct } = useOutletContext();
 
     useEffect(() => {
         const calcTotal = carrito.reduce((total, product) => total + (product.cantidad * (product.peso / 1000) * product.price), 0);
@@ -76,7 +76,7 @@ const Carrito = () => {
                         </aside>
                     </div>
                     <Outlet
-                        context={{carrito, total}}
+                        context={{setCarrito, carrito, total}}
                     />
                 </main>
             )}
