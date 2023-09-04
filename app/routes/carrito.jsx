@@ -1,6 +1,7 @@
-import { useOutletContext } from '@remix-run/react';
+import { Link, Outlet, useOutletContext } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 import { ClientOnly } from 'remix-utils';
+import { formatearCantidad } from '~/helpers/index';
 import CartItem from '~/components/CartItem';
 import style from '~/styles/carrito.css';
 
@@ -58,11 +59,25 @@ const Carrito = () => {
                                 </div>
                             }
                         </div>
-                        <aside className="carrito__resumen">
-                            <h3 className='carrito__resumen-title subtitle'>Resumen del pedido</h3>
-                            <p>Total a Pagar: <span>$ {total}</span></p>
+                        <aside className='carrito__resumen'>
+                            <div className='carrito__resumen-container'>
+                                <h3 className='carrito__resumen-title subtitle'>Resumen del pedido</h3>
+                                <p>Total a Pagar: <span>$ {formatearCantidad(total)} COP</span></p>
+                            </div>
+                            <Link 
+                                className='carrito__realizar-pedido-link' 
+                                to="/carrito/formulario">
+                                <input
+                                    className='carrito__realizar-pedido' 
+                                    type="submit" 
+                                    value={"Realizar Pedido"}
+                                />
+                            </Link>
                         </aside>
                     </div>
+                    <Outlet
+                        context={{carrito, total}}
+                    />
                 </main>
             )}
         </ClientOnly>

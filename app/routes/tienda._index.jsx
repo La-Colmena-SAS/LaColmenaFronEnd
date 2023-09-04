@@ -1,5 +1,4 @@
 import { useLoaderData } from '@remix-run/react';
-import Category from '~/components/Category';
 import Product from '~/components/Product';
 import { getCategories } from '~/models/categories.server';
 import { getProducts } from '~/models/products.server';

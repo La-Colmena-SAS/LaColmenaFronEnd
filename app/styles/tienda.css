@@ -218,6 +218,7 @@
     border: none;
     outline: none;
     padding: .5rem;
+    border-radius: 6px;
     margin-bottom: 12px;
     cursor: pointer;
     text-transform: uppercase;
